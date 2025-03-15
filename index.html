@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Untitled</title>
+  <link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Blood Donation</title>
+
+  <link rel="stylesheet" href="styles.css">
+
+</head>
+
+<body>
+
+  <!-- Login Page -->
+
+  <div id="loginPage" class="page">
+
+    <h2>Login</h2>
+
+    <form id="loginForm">
+
+      <input type="email" id="loginEmail" placeholder="Email" required><br>
+
+      <input type="password" id="loginPassword" placeholder="Password" required><br>
+
+      <button type="submit">Login</button>
+
+      <a href="#" id="forgotPasswordLink">Forgot Password?</a>
+
+    </form>
+
+    <p>Don't have an account? <a href="#" id="registerLink">Register</a></p>
+
+  </div>
+
+  <!-- Register Page -->
+
+  <div id="registerPage" class="page" style="display:none;">
+
+    <h2>Register</h2>
+
+    <form id="registerForm">
+
+      <input type="text" id="registerName" placeholder="Full Name" required>
+
+      <input type="tel" id="registerMobile" placeholder="Mobile Number" required>
+
+      <input type="email" id="registerEmail" placeholder="Email" required>
+
+      <input type="password" id="registerPassword" placeholder="Password" required>
+
+      <button type="submit">Register</button>
+
+    </form>
+
+    <p>Already have an account? <a href="#" id="loginLink">Login</a></p>
+
+  </div>
+
+  <!-- Home Page (User) -->
+
+  <div id="homePage" class="page" style="display:none;">
+
+    <h2>Home</h2>
+
+    <button id="profileBtn">Profile</button>
+
+    <button id="donorInfoBtn">Add Donor Info</button>
+
+    <button id="viewDonorsBtn">Donor List</button>
+
+    <button id="searchDonorBtn">Search</button>
+
+    <button id="aboutUsBtn">About Us</button>
+
+    <button id="logoutBtn">Logout</button>
+
+  </div>
+
+  <!-- Profile Page -->
+
+  <div id="profilePage" class="page" style="display:none;">
+
+    <h2>Profile</h2>
+
+    <div id="profileDetails">
+
+      <p id="profileName"></p>
+
+      <p id="profileEmail"></p>
+
+      <p id="profileMobile"></p>
+
+      <p id="profileAccess"></p>
+
+    </div>
+
+    <h3>Options</h3>
+
+    <button id="donorBookingBtn">Donor Booking</button>
+
+    <button id="checkReminderBtn">Check Donation Reminder</button>
+
+    <button id="viewUrgentRequestsBtn">View Urgent Requests</button>
+
+    <button id="viewUrgentRepliesBtn">View Urgent Request Replies</button>
+
+  </div>
+
+  <!-- Donor Booking Page -->
+
+  <div id="donorBookingPage" class="page" style="display:none;">
+
+    <h2>Donor Booking</h2>
+
+    <form id="bookingForm">
+
+      <input type="text" id="patientName" placeholder="রোগী নাম" required>
+
+      <input type="text" id="patientProblem" placeholder="রোগী সমস্যা" required>
+
+      <input type="number" id="patientAge" placeholder="রোগী বয়স" required>
+
+      <input type="text" id="bloodAmount" placeholder="ব্লাডের পরিমান" required>
+
+      <input type="text" id="hemoglobin" placeholder="হিমোগ্লোবিন" required>
+
+      <input type="tel" id="patientMobile" placeholder="রোগী মোবাইল নম্বর" required>
+
+      <input type="tel" id="donorMobile" placeholder="রিকুয়েষ্ট দাতার মোবাইল নম্বর" required>
+
+      <input type="text" id="hospitalName" placeholder="হাসপাতালের নাম" required>
+
+      <input type="date" id="bookingDate" required>
+
+      <input type="time" id="bookingTime" required>
+
+      <input type="text" id="referenceInfo" placeholder="রেফারেন্স" required>
+
+      <button type="submit">Book Donation</button>
+
+    </form>
+
+  </div>
+
+  <!-- Check Donation Reminder Page -->
+
+  <div id="checkReminderPage" class="page" style="display:none;">
+
+    <h2>Donation Reminder</h2>
+
+    <div id="reminderList">
+
+      <!-- Reminders will be loaded here -->
+
+    </div>
+
+  </div>
+
+  <!-- View Urgent Requests Page -->
+
+  <div id="viewUrgentRequestsPage" class="page" style="display:none;">
+
+    <h2>Urgent Requests</h2>
+
+    <div id="userUrgentRequestsList">
+
+      <!-- Urgent requests will be loaded here -->
+
+    </div>
+
+  </div>
+
+  <!-- Donor Info Page -->
+
+  <div id="donorInfoPage" class="page" style="display:none;">
+
+    <h2>Add Donor Info</h2>
+
+    <form id="donorForm">
+
+      <input type="text" id="donorName" placeholder="Name" required>
+
+      <input type="number" id="donorAge" placeholder="Age" required>
+
+      <select id="donorGender" required>
+
+        <option value="" disabled selected>Gender</option>
+
+        <option value="Male">Male</option>
+
+        <option value="Female">Female</option>
+
+        <option value="Other">Other</option>
+
+      </select>
+
+      <input type="text" id="donorLocation" placeholder="Location" required>
+
+      <input type="tel" id="donorMobile" placeholder="Mobile Number" required>
+
+      <select id="donorBloodGroup" required>
+
+        <option value="" disabled selected>Blood Group</option>
+
+        <option value="A+">A+</option>
+
+        <option value="A-">A-</option>
+
+        <option value="B+">B+</option>
+
+        <option value="B-">B-</option>
+
+        <option value="AB+">AB+</option>
+
+        <option value="AB-">AB-</option>
+
+        <option value="O+">O+</option>
+
+        <option value="O-">O-</option>
+
+      </select>
+
+      <input type="date" id="donorLastDonationDate" required>
+
+      <button type="submit">Save</button>
+
+    </form>
+
+  </div>
+
+  <!-- Donor List Page -->
+
+  <div id="donorListPage" class="page" style="display:none;">
+
+    <h2>Donor List</h2>
+
+    <div id="donorTableBody"></div>
+
+    <div class="pagination-container">
+
+      <button id="prevPageBtn" disabled>Previous</button>
+
+      <span id="currentPage">Page: 1</span>
+
+      <button id="nextPageBtn">Next</button>
+
+    </div>
+
+  </div>
+
+  <!-- Search Donor Page -->
+
+  <div id="searchDonorPage" class="page" style="display:none;">
+
+    <h2>Search Donor</h2>
+
+    <input type="text" id="searchName" placeholder="Search by Name">
+
+    <select id="searchBloodGroup">
+
+      <option value="">Select Blood Group</option>
+
+      <option value="A+">A+</option>
+
+      <option value="O+">O+</option>
+
+      <option value="B+">B+</option>
+
+      <option value="AB+">AB+</option>
+
+      <option value="A-">A-</option>
+
+      <option value="O-">O-</option>
+
+      <option value="B-">B-</option>
+
+      <option value="AB-">AB-</option>
+
+    </select><br>
+
+    <button id="searchBtn">Search</button>
+
+  </div>
+
+  <!-- Search Results Page -->
+
+  <div id="searchResultsPage" class="page" style="display:none;">
+
+    <h2>Search Results</h2>
+
+    <div id="searchResultsBody"></div>
+
+    <div class="pagination-controls">
+
+      <button id="searchPrevPageBtn">Previous Page</button>
+
+      <span id="searchCurrentPage">1 of 1</span>
+
+      <button id="searchNextPageBtn">Next</button>
+
+    </div>
+
+  </div>
+
+  <!-- About Us Page -->
+
+  <div id="aboutUsPage" class="page" style="display:none;">
+
+    <h2>Narsingdi District Blood Donor Club</h2>
+
+    <p>
+
+      <strong>App Developer</strong><br>
+
+      Name: MD. Raduan Islam Riyaz<br>
+
+      Profession: Electrical Engineer<br>
+
+      Mobile: 01645631256<br>
+
+      Facebook id: <a href="https://www.facebook.com/share/18dzzgGTzo/">Visit Profile</a>
+
+    </p>
+
+    <h3>Organization Goals:</h3>
+
+    <ol>
+
+      <li>Create awareness about voluntary blood donation</li>
+
+      <li>Provide accurate information about benefits and needs of blood donation</li>
+
+      <li>Organize free blood grouping camps in schools, colleges, and local areas</li>
+
+      <li>Create volunteer teams in each district</li>
+
+      <li>Celebrate national and international blood-related days</li>
+
+      <li>Establish own lab to collect and distribute safe blood</li>
+
+      <li>Provide low-cost blood tests in own lab</li>
+
+      <li>Support underprivileged and disaster-affected people</li>
+
+      <li>Establish shelters and educational support for poor children</li>
+
+      <li>Conduct various humanitarian activities for the country</li>
+
+    </ol>
+
+  </div>
+
+  <!-- Password Reset Modal -->
+
+  <div id="passwordResetModal" class="page" style="display:none;">
+
+    <h3>Reset Password</h3>
+
+    <form id="passwordResetForm">
+
+      <input type="email" id="resetEmail" placeholder="Enter your registered email" required>
+
+      <button type="submit">Send Reset Link</button>
+
+    </form>
+
+  </div>
+
+  <!-- Admin Panel -->
+
+  <div id="adminPanel" class="page" style="display:none;">
+
+    <h2>Admin Panel</h2>
+
+    <button id="managePendingUsersBtn">Manage Pending Users</button>
+
+    <button id="manageApprovedUsersBtn">Manage Approved Users</button>
+
+    <button id="dashboardBtn">Dashboard</button>
+
+    <button id="donorDownloadBtn">Donor Info Download</button>
+
+    <button id="urgentRequestAdminBtn">Urgent Requests</button>
+
+    <button id="reminderAdminBtn">Reminder</button>
+
+    <button id="bookingRequestsBtn">Booking Requests</button>
+
+    <button id="viewBookingRepliesBtn">View Booking Replies</button>
+
+    <button id="logoutAdminBtn">Logout</button>
+
+  </div>
+
+  <!-- Pending Users Page -->
+
+  <div id="pendingUsersPage" class="page" style="display:none;">
+
+    <h2>Pending Users</h2>
+
+    <div id="pendingUsersTableBody"></div>
+
+  </div>
+
+  <!-- Approved Users Page -->
+
+  <div id="approvedUsersPage" class="page" style="display:none;">
+
+    <h2>Approved Users</h2>
+
+    <div id="approvedUsersTableBody"></div>
+
+    <div class="pagination-container">
+
+      <button id="approvedPrevPageBtn">Previous</button>
+
+      <span id="approvedCurrentPage">Page: 1</span>
+
+      <button id="approvedNextPageBtn">Next</button>
+
+    </div>
+
+  </div>
+
+  <!-- Dashboard Page (Admin) -->
+
+  <div id="dashboardPage" class="page" style="display:none;">
+
+    <h2>Dashboard</h2>
+
+    <div id="dashboardStats">
+
+      <p>Total Donors: <span id="totalDonors">0</span></p>
+
+      <p>Donation Due: <span id="donationDueCount">0</span></p>
+
+      <p>Total Users: <span id="totalUsers">0</span></p>
+
+      <p>Total Full Access Users: <span id="fullAccessCount">0</span></p>
+
+      <p>Total User Access Users: <span id="userAccessCount">0</span></p>
+
+    </div>
+
+  </div>
+
+  <!-- Donor Info Download Page (Admin) -->
+
+  <div id="donorDownloadPage" class="page" style="display:none;">
+
+    <h2>Donor Info Download</h2>
+
+    <button id="downloadDonorBtn">Download Donor Info</button>
+
+  </div>
+
+  <!-- Urgent Requests Page (Admin) -->
+
+  <div id="urgentRequestAdminPage" class="page" style="display:none;">
+
+    <h2>Urgent Blood Request</h2>
+
+    <form id="urgentRequestForm">
+
+      <input type="text" id="patientNameUrgent" placeholder="Patient Name" required>
+
+      <input type="text" id="patientProblemUrgent" placeholder="Patient Problem" required>
+
+      <input type="number" id="patientAgeUrgent" placeholder="Patient Age" required>
+
+      <input type="text" id="bloodAmountUrgent" placeholder="Blood Amount" required>
+
+      <input type="text" id="hemoglobinUrgent" placeholder="Hemoglobin" required>
+
+      <input type="tel" id="patientMobileUrgent" placeholder="Patient Mobile" required>
+
+      <input type="tel" id="donorMobileUrgent" placeholder="Request Donor Mobile" required>
+
+      <input type="text" id="hospitalNameUrgent" placeholder="Hospital Name" required>
+
+      <input type="date" id="requestDateUrgent" required>
+
+      <input type="time" id="requestTimeUrgent" required>
+
+      <input type="text" id="referenceInfoUrgent" placeholder="Reference" required>
+
+      <button type="submit">Send Urgent Request</button>
+
+    </form>
+
+  </div>
+
+  <!-- Reminder Page (Admin) -->
+
+  <div id="reminderAdminPage" class="page" style="display:none;">
+
+    <h2>Send Reminder</h2>
+
+    <p>Reminder Message:</p>
+
+    <textarea id="reminderMessage" rows="4" cols="50" readonly>আসসালামু আলাইকুম। মানবতার ফেরিওয়ালা, আপনার রক্তদানের তিন মাস পূর্ণ হয়েছে। এখনই আবার রক্তদানের উপযুক্ত সময়। আপনি যদি সুস্থ থাকেন, তাহলে আপনার রক্তে একজন মুমূর্ষু রোগীর জীবন বাঁচাতে পারেন। একটু সাহায্যে ফোটান হাসি, দিন রক্ত, বাঁচান জীবন।</textarea>
+
+    <br>
+
+    <button id="sendReminderBtn">Send Reminder</button>
+
+  </div>
+
+  <!-- Booking Requests Page (Admin) -->
+
+  <div id="bookingRequestsPage" class="page" style="display:none;">
+
+    <h2>Donor Booking Requests</h2>
+
+    <div id="bookingRequestsTableBody"></div>
+
+  </div>
+
+  <!-- View Booking Replies Page (Admin) -->
+
+  <div id="viewBookingRepliesPage" class="page" style="display:none;">
+
+    <h2>Booking Replies</h2>
+
+    <div id="bookingRepliesList"></div>
+
+  </div>
+
+  <!-- View Urgent Request Replies Page (User) -->
+
+  <div id="viewUrgentRepliesPage" class="page" style="display:none;">
+
+    <h2>Urgent Request Replies</h2>
+
+    <div id="urgentRepliesList"></div>
+
+  </div>
+
+  <!-- Firebase and jsPDF Scripts -->
+
+  <script src="https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js"></script>
+
+  <script src="https://www.gstatic.com/firebasejs/11.0.2/firebase-auth.js"></script>
+
+  <script src="https://www.gstatic.com/firebasejs/11.0.2/firebase-database.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+  <script src="app.js"></script>
+
+</body>
+
+</html>
+<!-- partial -->
+  <script type="module" src="./script.js"></script>
+
+</body>
+</html>
